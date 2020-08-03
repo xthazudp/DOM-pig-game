@@ -49,9 +49,19 @@ document.querySelector('.btn-roll').addEventListener('click', function(){
         document.querySelector('.player-0-panel').classList.toggle('active');
         document.querySelector('.player-0-panel').classList.toggle('active');
 
+        document.querySelector('.dice').style.display = 'none';
+
         // document.querySelector('.player-0-panel').classList.remove('active');
         // document.querySelector('.player-1-panel').classList.add('active');
     }
+});
+
+document.querySelector('.btn-hold').addEventListener('click', function(){
+    // add current score to the global score
+    scores[activePlayer] += roundScore;
+
+    // update the UI
+    document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 });
 
 
