@@ -51,8 +51,16 @@ document.querySelector('.btn-hold').addEventListener('click', function(){
     // update the UI
     document.querySelector('#score-' + activePlayer).textContent = scores[activePlayer];
 
-    // nextPlayer
-    nextPlayer();
+    // check player if WON
+    if (scores[activePlayer] >= 20) {
+        document.querySelector('#name-' + activePlayer).textContent = 'Winner!!';
+        document.querySelector('.dice').style.display = 'none';
+        document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+        document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+    } else {
+         // nextPlayer
+        nextPlayer();
+    }
 });
 
 function nextPlayer(){
